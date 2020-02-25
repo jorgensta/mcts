@@ -6,7 +6,7 @@ type NimGameAction struct {
 	value  int8
 }
 
-// ApplyTo - TicTacToeBoardGameAction implementation of ApplyTo method of Action interface
+// ApplyTo - NimGameAction implementation of ApplyTo method of Action interface
 func (a NimGameAction) ApplyTo(s GameState) GameState {
 	NimGameState := s.(NimGameState)
 	NimGameState.board = copyNimBoard(NimGameState.board)
@@ -67,7 +67,7 @@ func (n NimGameState) EvaluateGame() (result GameResult, ended bool) {
 	return GameResult(0), false
 }
 
-// GetLegalActions - TicTacToeGameState implementation of GetLegalActions method of GameState interface
+// GetLegalActions - NimGameState implementation of GetLegalActions method of GameState interface
 func (n NimGameState) GetLegalActions() []Action {
 	var actions []Action
 
@@ -84,7 +84,7 @@ func (n NimGameState) GetLegalActions() []Action {
 	return actions
 }
 
-// NextToMove - TicTacToeGameState implementation of NextToMove method of GameState interface
+// NextToMove - NimGameState implementation of NextToMove method of GameState interface
 func (n NimGameState) NextToMove() int8 {
 	return n.nextToMove
 }

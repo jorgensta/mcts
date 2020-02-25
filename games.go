@@ -14,5 +14,5 @@ type GameState interface {
 	GetLegalActions() []Action
 	IsGameEnded() bool
 	NextToMove() int8
-	getBoard() int8
+	GetBoard() int8
 }
