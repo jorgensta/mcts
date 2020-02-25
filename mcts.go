@@ -26,6 +26,10 @@ func MonteCarloTreeSearch(state GameState, rolloutPolicy RolloutPolicy, simulati
 	return root.uctBestChild(0.0)
 }
 
+func (n monteCarloTreeSearchGameNode) GetPlayerAndBoardValueFromNode() (board int8, player int8) {
+	return n.value.GetBoard(), n.value.NextToMove()
+}
+
 func newMCTSNode(parentNode *monteCarloTreeSearchGameNode, state GameState, causingAction Action) monteCarloTreeSearchGameNode {
 	node := monteCarloTreeSearchGameNode{parent: parentNode, value: state, causingAction: causingAction}
 	node.children = make([]*monteCarloTreeSearchGameNode, 0, 0)
