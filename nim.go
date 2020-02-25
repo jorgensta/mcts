@@ -31,8 +31,8 @@ type NimGameState struct {
 	result     GameResult
 }
 
-// CreateTicTacToeInitialGameState - initializes Nim game state
-func createNimInitGameState(pileSize int8, nextToMove int8) NimGameState {
+// CreateNimGameState - initializes Nim game state
+func CreateNimGameState(pileSize int8, nextToMove int8) NimGameState {
 	board := initNewNimBoard(pileSize)
 	state := NimGameState{nextToMove: nextToMove, board: board}
 	return state
@@ -89,6 +89,7 @@ func (n NimGameState) NextToMove() int8 {
 	return n.nextToMove
 }
 
-func (n NimGameState) getBoard() int8 {
+// GetBoard - returns board for Nim
+func (n NimGameState) GetBoard() int8 {
 	return n.board
 }
